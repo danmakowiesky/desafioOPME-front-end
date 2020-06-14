@@ -1,44 +1,54 @@
-import React from 'react';
-import {FiChevronRight} from 'react-icons/fi';
+import React, { useState, FormEvent } from 'react';
+import { Link } from 'react-router-dom';
 import { Title, Form, Repositories } from './style';
+import api from '../../Services/api';
+
+interface User {
+  id: string;
+  login: string;
+  avatar_url: string;
+  name: string;
+}
 
 const Dashboard: React.FC = () => {
+  const [id, setId] = useState('');
+  const [users, setUsers] = useState<User[]>([]);
+
+  async function searchUsers(event: FormEvent<HTMLFormElement>): Promise<void> {
+    event.preventDefault();
+
+    const response = await api.get(`?since=${id}`);
+
+    const users = response.data;
+
+    const mapUser = users.map((dev: any) => {
+      return dev;
+    });
+    setUsers(mapUser);
+  }
   return (
     <>
       <Title>Repositorios GitHub</Title>
 
-      <Form action="">
-        <input placeholder="digite aqui" />
+      <Form onSubmit={searchUsers}>
+        <input
+          value={id}
+          onChange={(e): void => setId(e.target.value)}
+          placeholder="digite aqui"
+        />
         <button type="submit">Pesquisar</button>
       </Form>
 
       <Repositories>
-        <a href="teste">
-          <img src="https://avatars2.githubusercontent.com/u/54086257?s=460&v=4" alt="Daniel"/>
-          <div>
-            <strong>DanMakowiesky/blog</strong>
-            <p>teste do blog</p>
-          </div>
-          <FiChevronRight size={20} />
-        </a>
-
-        <a href="teste">
-          <img src="https://avatars2.githubusercontent.com/u/54086257?s=460&v=4" alt="Daniel"/>
-          <div>
-            <strong>DanMakowiesky/blog</strong>
-            <p>teste do blog</p>
-          </div>
-          <FiChevronRight size={20} />
-        </a>
-
-        <a href="teste">
-          <img src="https://avatars2.githubusercontent.com/u/54086257?s=460&v=4" alt="Daniel"/>
-          <div>
-            <strong>DanMakowiesky/blog</strong>
-            <p>teste do blog</p>
-          </div>
-          <FiChevronRight size={20} />
-        </a>
+        {users.map(u => (
+          <Link key={u.id} to={`/userinfo/${u.login}`}>
+            <img src={u.avatar_url} alt={u.name} />
+            <div>
+              <strong>{u.name}</strong>
+              <p>{u.login}</p>
+            </div>
+          </Link>
+        ))}
       </Repositories>
     </>
   );

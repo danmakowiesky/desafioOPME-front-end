@@ -38,7 +38,7 @@ const UserInfo: React.FC = () => {
           Voltar
         </Link>
       </Header>
-
+      
       <Info>
         <img src={data?.avatar_url} alt="nome" />
         <div>
@@ -47,6 +47,7 @@ const UserInfo: React.FC = () => {
           <p>Nome: {data?.name}</p>
           <p>Local: {data?.location}</p>
           <p>Site: {data?.blog}</p>
+          <Link to={`/repositorios/${data?.login}`}>Repositorios</Link>
         </div>
       </Info>
 

@@ -7,7 +7,7 @@ import UserInfo from '../pages/UserInfo';
 const Routes: React.FC = () => (
   <Switch>
     <Route path="/" exact component={Dashboard} />
-    <Route path="/userinfo" exact component={UserInfo} />
+    <Route path="/userinfo/:username" exact component={UserInfo} />
   </Switch>
 );
 

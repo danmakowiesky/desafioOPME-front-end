@@ -17,7 +17,7 @@ const Dashboard: React.FC = () => {
   async function searchUsers(event: FormEvent<HTMLFormElement>): Promise<void> {
     event.preventDefault();
 
-    const response = await api.get(`?since=${id}`);
+    const response = await api.get(`api/users/?since=${id}`);
 
     const users = response.data;
 

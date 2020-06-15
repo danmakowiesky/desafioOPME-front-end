@@ -1,4 +1,8 @@
 ##Desafio front-end
 
+Código do desafio para vaga de desenvolvedor na empresa gestaoopme
 
---Para executar a aplicaçāo, deve ser executado o comando: yarn start.
+-- Passos para executar a aplicaçāo
+
+yarn install 
+yarn start

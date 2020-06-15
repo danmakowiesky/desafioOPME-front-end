@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import {shade} from 'polished';
+import { shade } from 'polished';
 
 export const Title = styled.h1`
   font-size: 48px;
-  color: #3A3A3A;
+  color: #3a3a3a;
   margin-top: 80px;
   max-width: 450px;
   line-height: 56px;
@@ -15,16 +15,15 @@ export const Form = styled.form`
   display: flex;
 
   input {
-    flex:1;
+    flex: 1;
     height: 70px;
     padding: 0 24px;
     border: 0;
     border-radius: 5px 0 0 5px;
 
-    &:placeholder{
+    &:placeholder {
       color: #a8a8b3;
     }
-
   }
 
   button {
@@ -44,8 +43,8 @@ export const Form = styled.form`
 export const Repositories = styled.div`
   margin-top: 80px;
   max-width: 700px;
-  
-  a{
+
+  a {
     background: #fff;
     border-radius: 5px;
     width: 100%;
@@ -59,38 +58,35 @@ export const Repositories = styled.div`
     & + a {
       margin-top: 10px;
     }
-  
-    &:hover{
-      transform: translateX(10px)
+
+    &:hover {
+      transform: translateX(10px);
     }
 
-    img{
+    img {
       width: 64px;
       height: 64px;
-      border-radius:100%;
+      border-radius: 100%;
     }
-  
 
-    div{
+    div {
       margin-left: 15px;
 
       strong {
         font-size: 20px;
         color: #3d3d4d;
       }
-      
-      p{
-        font-size:18px;
+
+      p {
+        font-size: 18px;
         color: #a8a8b3;
         margin-top: 4px;
       }
 
-      svg{
+      svg {
         margin-left: auto;
         color: #cbcbcb;
       }
-     
     }
   }
-  
 `;

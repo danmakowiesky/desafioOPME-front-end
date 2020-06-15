@@ -34,7 +34,7 @@ const Dashboard: React.FC = () => {
         <input
           value={id}
           onChange={(e): void => setId(e.target.value)}
-          placeholder="digite aqui"
+          placeholder="Digite aqui um id de um usuário do github!"
         />
         <button type="submit">Pesquisar</button>
       </Form>
